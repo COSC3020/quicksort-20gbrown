@@ -1,8 +1,13 @@
 function quicksort(array) {
-    if (array.length <= 1) {
+    /*if (array.length <= 1) {
+        return array;
+    }*/
+
+    if (array == null || array.length <=1) {
         return array;
     }
 
+    const len = array.length;
     const stack = [0, array.length - 1];
 
     while (stack.length > 0) {
@@ -28,13 +33,16 @@ function quicksort(array) {
 
             const pivotIndex = i + 1;
 
-            if (pivotIndex - 1 > start) {
+            stack.push(start, pivotIndex - 1);
+            stack.push(pivotIndex + 1, end);
+
+            /*if (pivotIndex - 1 > start) {
                 stack.push(start, pivotIndex - 1);
             }
 
             if (pivotIndex + 1 < end) {
                 stack.push(pivotIndex + 1, end);
-            }
+            }*/
         }
     }
 
